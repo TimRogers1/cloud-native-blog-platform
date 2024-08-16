@@ -1,0 +1,18 @@
+image:
+  repository: blog-frontend
+  tag: latest
+service:
+  type: LoadBalancer
+  port: 80
+serviceAccount:
+  create: true
+  name: "blog-frontend-sa"
+  automount: true
+  annotations: {}
+autoscaling:
+  enabled: false  # Set to true if you want to enable autoscaling
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+
